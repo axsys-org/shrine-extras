@@ -26,7 +26,8 @@ def check(url, node, timeout):
         except urllib.error.HTTPError as error:
             print(f'Install {target}: {error.code} {error.read().decode()}', flush=True)
             raise
-    assert 'committed' in install_instance('/app/srs')
+    # Activation must have installed the default instance before any HTTP writes.
+    assert 'What does a Shrine name identify?' in get(f'/ns/{node}/app/srs/cards/demo')
     assert 'committed' in install_instance('/app/second')
     for target, case in [('/app/srs', version.group(1)), ('/app/stale', '0')]:
         try:

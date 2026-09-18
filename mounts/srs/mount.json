@@ -6,7 +6,8 @@
     "codecs"
   ],
   "modules": {
-    "apps/srs/main": "main.foil"
+    "apps/srs/main": "main.foil",
+    "srs_mount": "activation.foil"
   },
   "grove": [
     {
@@ -33,6 +34,10 @@
       "apps/srs/main"
     ],
     [
+      "lib",
+      "srs_mount"
+    ],
+    [
       "gov",
       "srs"
     ]
@@ -41,5 +46,12 @@
     "tests/eden_srs": "test_eden_srs.foil",
     "eden_srs": "fixture_eden_srs.foil"
   },
-  "host": "host.py"
+  "host": "host.py",
+  "activate": {
+    "module": "srs_mount",
+    "entry": [
+      "srs_mount",
+      "install"
+    ]
+  }
 }

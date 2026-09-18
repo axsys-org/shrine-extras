@@ -14,8 +14,10 @@ checkout:
 `x/generate-openrouter --core-root ../reaver-two`. `explorer` adds `/ns`.
 `debugger` depends on `web` and `codecs`, publishes `/gov/debug`, installs
 `/app/debug`, and owns `/debug` and `/debug-read`. `srs` publishes `/gov/srs` as
-an installable template. `codex` registers its driver and owns the bridge's
-lifetime; set `CODEX_BIN` for a real server (`--check` uses the fake server).
+an installable template and automatically installs `/app/srs`. Additional SRS
+instances can still be installed from that template. `codex` registers its driver
+and owns the bridge's lifetime; set `CODEX_BIN` for a real server (`--check` uses
+the fake server).
 Chat, demo, Life, Loom, Nenex and Watch publish their modules and activate their
 manifests. Hyp retains its standalone runner. Board and tic-tac-toe retain their
 legacy declarative source bags; they had no Eden startup entrypoint.
